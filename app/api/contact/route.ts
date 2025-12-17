@@ -6,9 +6,9 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, email, message } = body;
+        const { name, contactInfo, message } = body;
 
-        if (!name || !email || !message) {
+        if (!name || !contactInfo || !message) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
                 { status: 400 }
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 📩 *New Portfolio Contact*
 
 👤 *Name:* ${name}
-📧 *Email:* ${email}
+📱 *Contact Info:* ${contactInfo}
 📝 *Message:*
 ${message}
     `;
