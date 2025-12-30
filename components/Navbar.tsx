@@ -16,7 +16,7 @@ const NavLinks = [
 ];
 
 export function Navbar() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
 
@@ -57,11 +57,17 @@ export function Navbar() {
               ))}
               {mounted && (
                 <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  onClick={() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                  }
                   className="p-2 rounded-full hover:bg-secondary/20 transition-colors"
                   aria-label="Toggle theme"
                 >
-                  {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                  {resolvedTheme === "dark" ? (
+                    <Sun size={20} />
+                  ) : (
+                    <Moon size={20} />
+                  )}
                 </button>
               )}
             </div>
@@ -71,10 +77,16 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-4">
             {mounted && (
               <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
                 className="p-2 rounded-full hover:bg-secondary/20 transition-colors"
               >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                {resolvedTheme === "dark" ? (
+                  <Sun size={20} />
+                ) : (
+                  <Moon size={20} />
+                )}
               </button>
             )}
             <button
