@@ -63,7 +63,7 @@ const iconList = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-16 bg-secondary/5 overflow-hidden">
+    <section id="skills" className=" bg-secondary/5 overflow-hidden">
       {/* Animated Icon Marquee */}
       <div className="w-full mb-16 relative flex items-center pt-24">
         <div className="flex w-[200%]">
